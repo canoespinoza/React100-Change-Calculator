@@ -1,0 +1,1 @@
+This is a simple change calculator built using React. Clone the repo, launch the server at localhost:3000, and enjoy calculating how much money is owed to you / you owe people!

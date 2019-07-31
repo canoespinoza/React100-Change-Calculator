@@ -32,7 +32,7 @@ class App extends Component {
     var change = (amountReceived - amountDue).toFixed(2);
     var cents = change - Math.floor(change);
     
-    if(amountReceived < amountDue){
+    if(amountDue > amountReceived){
       this.setState({
         errorClass : 'alert alert-danger',
         output : 'tf outta here witcho broke ass!',
@@ -68,7 +68,6 @@ class App extends Component {
           var five = Math.floor(change/5);
          (change %= 5).toFixed(2);
           finalChange.push(five)
-          console.log(change)
         } else{finalChange.push(0)}
         
         if(change >= 1){
@@ -83,7 +82,6 @@ class App extends Component {
             var quarter = Math.floor(cents/25)
             cents %= (quarter * 25);
             cents = Math.floor(cents)
-            console.log(cents)
             finalChange.push(quarter) 
         } else{finalChange.push(0)}
         
@@ -91,7 +89,6 @@ class App extends Component {
             var dime = Math.floor(cents/10)
             cents %= (dime * 10);
             cents = Math.floor(cents)
-            console.log(cents)
             finalChange.push(dime)
         } else{finalChange.push(0)}
         
@@ -99,7 +96,6 @@ class App extends Component {
             var nickel = Math.floor(cents/5)
             cents %= (nickel * 5);
             cents = Math.floor(cents)
-            console.log(cents)
             finalChange.push(nickel)
         } else{finalChange.push(0)}
         
@@ -120,7 +116,7 @@ class App extends Component {
         nickels: finalChange[6],
         pennies: finalChange[7]
     })
-    }
+  }
 }
 
   render() {
@@ -170,22 +166,22 @@ class App extends Component {
                   name='output'
                   onChange={this.handleCalculate}> {this.state.output}
                   </div> 
-                <div className='form-control' id='twenties' onChange={this.handleChange}>
-                  Twenties={this.state.twenties}</div>
-                <div className='form-control' id='tens' onChange={this.handleChange}>
-                  Tens={this.state.tens}</div>
-                <div className='form-control' id='fives' onChange={this.handleChange}>
-                  Fives={this.state.fives}</div>
-                <div className='form-control' id='ones' onChange={this.handleChange}>
-                  Ones={this.state.ones}</div>
-                <div className='form-control' id='quarters' onChange={this.handleChange}>
-                  Quarters={this.state.quarters}</div>
-                <div className='form-control' id='dimes' onChange={this.handleChange}>
-                  Dimes={this.state.dimes}</div>
-                <div className='form-control' id='nickels' onChange={this.handleChange}>
-                  Nickels={this.state.nickels}</div>
-                <div className='form-control' id='pennies' onChange={this.handleChange}>
-                  Pennies={this.state.pennies}</div>
+                <div className='change form-control' name='twenties'>
+                  {this.state.twenties}</div>
+                <div className='change form-control' name='tens'>
+                  {this.state.tens}</div>
+                <div className='change form-control' name='fives'>
+                  {this.state.fives}</div>
+                <div className='change form-control' name='ones'>
+                  {this.state.ones}</div>
+                <div className='change form-control' name='quarters'>
+                  {this.state.quarters}</div>
+                <div className='change form-control' name='dimes'>
+                  {this.state.dimes}</div>
+                <div className='change form-control' name='nickels'>
+                  {this.state.nickels}</div>
+                <div className='change form-control' name='pennies'>
+                  {this.state.pennies}</div>
               </div>
             </div>
           </div>
